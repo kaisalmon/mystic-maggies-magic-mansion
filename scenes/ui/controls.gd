@@ -24,7 +24,7 @@ func update_input_names() -> void:
 	update_button(move_left_button, get_first_input_for("move_left"))
 	update_button(move_right_button, get_first_input_for("move_right"))
 	update_button(interact_button, get_first_input_for("interact"))
-	update_button(drop_button, get_first_input_for("unstuck"))
+	update_button(unstuck_button, get_first_input_for("unstuck"))
 	update_button(drop_button, get_first_input_for("drop_item"))
 
 func _on_move_up_button_pressed() -> void:
@@ -77,7 +77,6 @@ func _input(in_event: InputEvent) -> void:
 		#if in_joy_motion_event.axis_value < 0.3:
 		#	return
 
-	
 	update_input_map(input_reassignment_key, in_event)
 	update_button(reassign_button, in_event)
 	#get_viewport().set_input_as_handled() # needed?
@@ -89,7 +88,14 @@ func update_button(button: Button, new_key_event: InputEvent) -> void:
 		return
 	
 	if new_key_event is InputEventMouseButton:
-		button.text = (new_key_event as InputEventMouse).as_text()
+		new_key_event.double_click = false
+		button.text = (new_key_event as InputEventMouseButton).as_text()
+	elif new_key_event is InputEventKey:
+		var iek: InputEventKey = (new_key_event as InputEventKey)
+		var keycode: int = iek.keycode
+		if keycode == 0:
+			keycode = DisplayServer.keyboard_get_keycode_from_physical(iek.physical_keycode)
+		button.text = OS.get_keycode_string(keycode) #
 	else:
 		button.text = new_key_event.as_text_key_label()
 		

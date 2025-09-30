@@ -63,3 +63,10 @@ dialogue.unlock_room.corridor;And this is the corridor.;Und das ist der Korridor
 dialogue.unlock_room.green_house;It's pumpkin season!;Es ist Kürbis-Saison!
 dialogue.intro.1;I think this'll make nice place to settle for the winter.;Ich denke, das wird ein schöner Ort sein, um sich für den Winter niederzulassen.
 dialogue.ending.1;...and that's it! The last room!;...und das ist er! Der letzte Raum!
+input.move_forward;Forward;Vorwärts
+input.move_backwards;Backwards;Rückwärts
+input.move_left;Left;Links
+input.move_right;Right;Rechts
+input.interact;Interact;Interagieren
+input.drop_item;Drop Item;Item fallenlassen
+input.reset_position;Reset Position;Position zurücksetzen

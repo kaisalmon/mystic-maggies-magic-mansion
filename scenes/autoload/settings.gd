@@ -1,5 +1,8 @@
 extends Node
 
+const DEFAULT_WINDOW_RES: int = 192
+const RESIZE_WAIT_DELAY: float = 1.5
+
 const SAVE_PATH: String = "user://settings.save"
 const FULLSCREEN_IS_BORDERLESS: bool = true
 
@@ -18,12 +21,16 @@ var ambience_volume_linear: float = 0.75
 var sensitivity: float = 1.0
 var fullscreen_active: bool = false
 var is_debug_mode_available: bool
+var window_size: Vector2i = Vector2i(DEFAULT_WINDOW_RES * 4, DEFAULT_WINDOW_RES * 4)
+
+var viewport_size_dirty: bool = false
+var timer: Timer = null
 
 func _ready() -> void:
 	is_debug_mode_available = Util.is_debug_mode_allowed()
 	load_from_file()
 	apply_values()
-	
+
 func reset_to_defaults(do_save: bool = true) -> void:
 	set_locale(&"en", false)
 	set_master_volume(0.75, false)
@@ -33,6 +40,7 @@ func reset_to_defaults(do_save: bool = true) -> void:
 	set_fullscreen_active(false, false)
 	set_mouse_sensitivity(1.0, false)
 	set_debug_mode_available(Util.is_debug_mode_allowed(), false)
+	update_window_size(Vector2i(DEFAULT_WINDOW_RES * 4, DEFAULT_WINDOW_RES * 4))
 	
 	apply_values()
 	if do_save:
@@ -40,6 +48,8 @@ func reset_to_defaults(do_save: bool = true) -> void:
 
 func apply_values() -> void:
 	TranslationServer.set_locale(locale)
+	get_window().size = window_size
+	
 	Util.set_bus_volume(MASTER_BUS_NAME, master_volume_linear)
 	Util.set_bus_volume(SFX_BUS_NAME, music_volume_linear)
 	Util.set_bus_volume(MUSIC_BUS_NAME, sfx_volume_linear)
@@ -55,6 +65,7 @@ func save_to_file() -> void:
 		"ambience_volume": ambience_volume_linear,
 		"locale": locale,
 		"fullscreen_active": fullscreen_active,
+		#"window_size": var_to_str(window_size),
 		"is_debug_mode_available": is_debug_mode_available
 	}
 	
@@ -88,6 +99,8 @@ func load_from_file() -> void:
 			locale = save_dict["locale"]
 		if save_dict.has("fullscreen_active"):
 			fullscreen_active = save_dict["fullscreen_active"]
+		#if save_dict.has("window_size"):
+		#	window_size = str_to_var(save_dict["window_size"])
 		if save_dict.has("is_debug_mode_available"):
 			is_debug_mode_available = is_debug_mode_available || save_dict["is_debug_mode_available"]
 			
@@ -140,3 +153,12 @@ func set_mouse_sensitivity(sensitivity_new: float, do_save: bool = true) -> void
 	
 	if do_save:
 		save_to_file()
+
+func update_window_size(window_size_new: Vector2i, do_save: bool = true) -> void:
+	window_size = window_size_new
+	
+	if do_save:
+		save_to_file()
+#
+#func save_current_window() -> void:
+	#update_window_size(get_window().size, true)

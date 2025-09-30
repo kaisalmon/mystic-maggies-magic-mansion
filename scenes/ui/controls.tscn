@@ -26,7 +26,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Move Up"
+text = "input.move_forward"
 
 [node name="MoveUpButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -37,7 +37,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-text = "Move Down"
+text = "input.move_backwards"
 
 [node name="MoveDownButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -48,7 +48,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-text = "Move Left"
+text = "input.move_left"
 
 [node name="MoveLeftButton" type="Button" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
@@ -59,7 +59,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
-text = "Move Right"
+text = "input.move_right"
 
 [node name="MoveRightButton" type="Button" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
@@ -70,7 +70,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer5"]
 layout_mode = 2
-text = "Interact"
+text = "input.interact"
 
 [node name="InteractButton" type="Button" parent="VBoxContainer/HBoxContainer5"]
 layout_mode = 2
@@ -81,7 +81,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer6"]
 layout_mode = 2
-text = "Drop"
+text = "input.drop_item"
 
 [node name="DropButton" type="Button" parent="VBoxContainer/HBoxContainer6"]
 layout_mode = 2
@@ -92,7 +92,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer7"]
 layout_mode = 2
-text = "Unstuck"
+text = "input.reset_position"
 
 [node name="UnstuckButton" type="Button" parent="VBoxContainer/HBoxContainer7"]
 layout_mode = 2

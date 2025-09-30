@@ -26,10 +26,9 @@ SaveGame="*res://scenes/autoload/save_game.gd"
 
 [display]
 
-window/size/viewport_width=768
-window/size/viewport_height=768
+window/size/viewport_width=192
+window/size/viewport_height=192
 window/stretch/mode="viewport"
-window/stretch/scale=4.0
 window/stretch/scale_mode="integer"
 
 [gui]

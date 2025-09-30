@@ -22,6 +22,7 @@ func load_game() -> bool:
 	
 func save_game() -> void:
 	SaveGame.save_to_file()
+	#Settings.save_current_window_size()
 	
 func _process(delta: float) -> void:
 	if timer < fadein_time and not GameState.is_ending:

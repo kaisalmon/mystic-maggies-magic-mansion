@@ -1,10 +1,8 @@
-[gd_scene load_steps=61 format=3 uid="uid://ddhwvnrt4veas"]
+[gd_scene load_steps=58 format=3 uid="uid://ddhwvnrt4veas"]
 
 [ext_resource type="PackedScene" uid="uid://ctiidqqgvmjm0" path="res://scenes/level/level_base.tscn" id="1_h3e3j"]
 [ext_resource type="Script" uid="uid://cacegnsvxeb7n" path="res://scenes/level/main_game.gd" id="2_sytrn"]
 [ext_resource type="PackedScene" uid="uid://cls2l048sueax" path="res://scenes/player/player.tscn" id="3_i166f"]
-[ext_resource type="Shader" uid="uid://dvefp8crwbeq8" path="res://materials/pico8.gdshader" id="3_m0bv2"]
-[ext_resource type="Texture2D" uid="uid://4lhd8480iw6b" path="res://hidden-library-1x.png" id="4_b7m21"]
 [ext_resource type="PackedScene" uid="uid://1o1n6tonmg8w" path="res://scenes/level/map_layout_alt.tscn" id="5_a5iu8"]
 [ext_resource type="PackedScene" uid="uid://cpsbtueuw7x8m" path="res://ui/mana_orb.tscn" id="8_xv074"]
 [ext_resource type="Texture2D" uid="uid://dfufa154w6xnr" path="res://models/custom/stonerepeated.png" id="10_87pmf"]
@@ -44,14 +42,6 @@
 [ext_resource type="Script" uid="uid://cxu1nrqik4n3d" path="res://scenes/level/game_end_area.gd" id="33_mf35j"]
 [ext_resource type="AudioStream" uid="uid://2j41qijj5v2b" path="res://audio/sfx/ui/candles_interact.ogg" id="35_7lsmv"]
 [ext_resource type="AudioStream" uid="uid://dcncsjmf4xa4" path="res://audio/sfx/ui/pumpkin_interact.ogg" id="35_d6d7a"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pm6rs"]
-shader = ExtResource("3_m0bv2")
-shader_parameter/palette_texture = ExtResource("4_b7m21")
-shader_parameter/palette_size = 16
-shader_parameter/solid_modifier = 0.6
-shader_parameter/max_distance = 0.6
-shader_parameter/gamma = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t51ir"]
 albedo_texture = ExtResource("10_87pmf")
@@ -196,9 +186,6 @@ offset_right = 261.0
 offset_bottom = 238.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
-
-[node name="ColorRect" parent="CanvasLayer" index="1"]
-material = SubResource("ShaderMaterial_pm6rs")
 
 [node name="MapLayoutAlt" parent="." index="5" instance=ExtResource("5_a5iu8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011630058, -1.1920929e-07, 0.0049972534)

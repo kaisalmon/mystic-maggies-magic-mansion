@@ -70,6 +70,7 @@ func _on_new_game_button_pressed() -> void:
 	if starting_game:
 		return
 	click.play()
+	#Settings.save_current_window_size()
 	if new_game_deletes_old_save:
 		SaveGame.delete_savegame()
 	
@@ -80,6 +81,7 @@ func _on_new_game_button_pressed() -> void:
 func _on_continue_button_pressed() -> void:
 	if starting_game:
 		return
+	#Settings.save_current_window_size()
 	click.play()
 	starting_game = true
 	fadeout_timer = fadeout_duration
@@ -103,6 +105,7 @@ func _on_quit_button_pressed() -> void:
 	if starting_game:
 		return
 	click.play()
+	#Settings.save_current_window_size()
 	get_tree().quit()
 
 func _on_settings_ui_back_pressed() -> void:
@@ -127,10 +130,8 @@ func _on_credits_button_mouse_entered() -> void:
 func _on_quit_button_mouse_entered() -> void:
 	hover.play()
 
-
 func _on_controls_button_mouse_entered() -> void:
 	hover.play()
-
 
 func _on_controls_button_pressed() -> void:
 	controls_ui.visible = true

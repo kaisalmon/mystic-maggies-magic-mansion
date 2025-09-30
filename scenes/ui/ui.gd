@@ -138,6 +138,7 @@ func show_text(next_text_to_show: String) -> void:
 
 func do_autosave() -> void:
 	SaveGame.save_to_file()
+	#Settings.save_current_window_size()
 	autosave_available = false
 	autosave_timer.start()
 	
